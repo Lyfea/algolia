@@ -7,7 +7,7 @@ For lauching the first time:
 $ virtualenv flask
 $ flask/bin/pip install flask
 $ ./main.py tsv_file
-Next times: ./main.py tsv_file
+Next times: ./src/main.py tsv_file
 
 Request (or via navigator):
 $ curl localhost:5000/1/queries/count/2015
