@@ -1,0 +1,28 @@
+
+                                README
+
+I am using Flask for the REST API and the language used is Python3.
+
+For lauching the first time:
+$ virtualenv flask
+$ flask/bin/pip install flask
+$ ./main.py tsv_file
+Next times: ./main.py tsv_file
+
+Request (or via navigator):
+$ curl localhost:5000/1/queries/count/2015
+$ curl localhost:5000/1/queries/popular/2015-08-03?size=5
+
+Implementation:
+All the data are loaded in RAM. It is stored in a map of query and list of date
+as: { ["foobar", ["2015-08-02", "2015-09-03"]], ["foo", ["2015-08-04"]] }
+The list's queries are sorted by date and the queries are sorted by their first
+date. Sorting them enable to have one more stop-case in the search.
+
+I asserted that most of the queries are redondant given enough data thus I
+associated to each query its dates.
+For the distinct count, it avoids the storing of the queries: each query is
+unique in the map thus we do not have to check the distinctness.
+For the popular count, it avoids the storing of each query associated with
+their count. We just add the query and its count in a list if the later is
+superior to one of the N most popular queries.
