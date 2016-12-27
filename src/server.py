@@ -6,11 +6,11 @@ import searcher
 
 app = Flask(__name__)
 
-@app.route('/1/queries/count/<date>')
+@app.route('/1/queries/count/<date>', methods=["GET"])
 def count(date):
     return str(searcher.count(date))
 
-@app.route('/1/queries/popular/<date>')
+@app.route('/1/queries/popular/<date>', methods=["GET"])
 def popular(date):
     size = int(request.args['size'])
     return str(searcher.popular(date, size))
