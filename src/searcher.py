@@ -52,6 +52,5 @@ def json_pop(heap):
         json += "{ query: \"" + values[1] + "\", count: " + str(values[0]) + " },\n    "
     json = json[:-2]
     json += "]\n}\n"
-    print(json)
     return json
 
