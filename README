@@ -6,7 +6,7 @@ I am using Flask for the REST API and the language used is Python3.
 For lauching the first time:
 $ virtualenv flask
 $ flask/bin/pip install flask
-$ ./main.py tsv_file
+$ ./src/main.py tsv_file
 Next times: ./src/main.py tsv_file
 
 Request (or via navigator):
