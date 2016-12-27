@@ -26,3 +26,12 @@ unique in the map thus we do not have to check the distinctness.
 For the popular count, it avoids the storing of each query associated with
 their count. We just add the query and its count in a list if the later is
 superior to one of the N most popular queries.
+
+Improvement:
+We could serialize the data (and it will be necessary if there is too much
+datas) and parallelise the treatment: each thread would have a part of the
+queries. For the distinct count, we just have to compute the sum of each count,
+the datas are grouped by queries so there is no problem of distinct between
+thread. For the popular count, we would compute the N most popular in each
+thread then compute the N most popular among the queries returned by the threads,
+once again, there is no problem thanks to the data being grouped by query.
