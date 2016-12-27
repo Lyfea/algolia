@@ -15,6 +15,10 @@ def popular(date):
     size = int(request.args['size'])
     return str(searcher.popular(date, size))
 
+@app.errorhandler(404)
+def not_found(error):
+    return "Error 404: Not found"
+
 def init():
     app.run(debug=False)
 
